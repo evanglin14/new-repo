@@ -1,0 +1,10 @@
+pipeline{
+    agent any 
+    stages{
+        stage("Welcome to the Git Checkout"){
+            steps{
+                git credentialsId: 'github', url: 'https://github.com/evanglin14/new-repo.git'
+            }
+        }
+    }
+}
