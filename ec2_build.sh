@@ -9,7 +9,9 @@
         --security-group-ids sg-059130d3ed80d5324 \
         --subnet-id subnet-0e8281328042b2fa4 \
         --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=project-demo-2}]' \
-
-
-         
+        --region-name ap-south-1
         
+        aws ec2 describe-instances \
+        --filters "Name=tag:Name,Values=project-demo-2" \
+        --query "Reservations[*].Instances[*].[InstanceId]" \
+        --output text
